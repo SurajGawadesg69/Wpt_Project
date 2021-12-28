@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark text-light justify-content-center align-items-center fs-4 sticky-top"
+            style="height: 60px">
+            <div class="col-xl-8">
+                <h3> Welcome to Food Paradise Login Page</h3>
+            </div>
+        </div>
+        <div class="row bg-primary p-xl-2 text-decoration align-items-center justify-content-center fs-1">Login to
+            your
+            Account</div>
+        <br />
+
+        <div class="row justify-content-center">
+            <form onsubmit="return validation()" class="col-xl-6 col-sm-3 col-md-4">
+                <div class="form-group">
+                    <label class="font-weight-regular"> Email Id </label>
+                    <input type="text" name="email" class="form-control" id="emails" placeholder="Enter Email here"
+                        autocomplete="off" />
+                    <span id="emailids" class="text-danger font-weight-regular"> </span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-regular"> Password </label>
+                    <input type="password" name="pass" class="form-control" placeholder="Enter password here" id="pass"
+                        autocomplete="off" />
+                    <span id="passwords" class="text-danger font-weight-regular">
+                    </span>
+                </div>
+
+                <button class="btn btn-primary w-50">Login <a href="index.html"></a></button>
+                <input type="reset" name="reset" value="Reset" class="btn btn-secondary w-25 float-xl-right"
+                    autocomplete="off" />
+                &emsp;&emsp;&emsp;
+
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function validation() {
+
+            var pass = document.getElementById("pass").value;
+
+            var emails = document.getElementById("emails").value;
+
+
+
+            if (emails == "") {
+                document.getElementById("emailids").innerHTML =
+                    " ** Please fill the email id field";
+                return false;
+            }
+            if (emails.indexOf("@") <= 0) {
+                document.getElementById("emailids").innerHTML = " ** Invalid Email";
+                return false;
+            }
+
+            if (
+                emails.charAt(emails.length - 4) != "." &&
+                emails.charAt(emails.length - 3) != "."
+            ) {
+                document.getElementById("emailids").innerHTML = " ** Invalid Email";
+                return false;
+            }
+
+
+            if (pass == "") {
+                document.getElementById("passwords").innerHTML =
+                    " ** Please fill the password field";
+                return false;
+            }
+            if (pass.length <= 8 || pass.length > 20) {
+                document.getElementById("passwords").innerHTML =
+                    " ** Passwords length must be between  8 and 20";
+                return false;
+            }
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>
